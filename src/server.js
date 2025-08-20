@@ -1,3 +1,4 @@
+const notesPlugin = require('./notesPlugin.js');
 const Hapi = require('@hapi/hapi');
 const routes = require('./routes');
 
@@ -14,8 +15,13 @@ const init = async () => {
 
   server.route(routes);
 
+  await server.register({
+    plugin: notesPlugin,
+    options: { notes: [] },
+  });
+
   await server.start();
-  console.log(`Server berjalan pada ${server.info.uri}`);
+  console.log(`Server running at ${server.info.uri}`);
 };
 
 init();

@@ -1,7 +1,3 @@
-const notes = [
-  {
-    content: "Dark is the best TV show of all time"
-  }
-];
+const notes = [];
 
 module.exports = notes;
