@@ -13,7 +13,7 @@ const init = async () => {
     },
   });
 
-  server.route(routes);
+  server.route([]);
 
   await server.register({
     plugin: notesPlugin,
