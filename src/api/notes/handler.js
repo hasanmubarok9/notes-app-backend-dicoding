@@ -27,7 +27,6 @@ class NotesHandler {
     }
   }
   
-
   getNotesHandler() {
     console.log("di dalam handler getNotesHandler, masuk gk sih?");
     const notes = this._service.getNotes();
@@ -41,7 +40,7 @@ class NotesHandler {
     return response; 
   }
 
-  getNoteIdByHandler(request, h) {
+  getNoteByIdHandler(request, h) {
     try {
       const { id } = request.payload;
       const note = this._service.getNoteById(id);
