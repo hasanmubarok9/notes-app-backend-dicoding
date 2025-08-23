@@ -1,3 +1,5 @@
+const { nanoid } = require('nanoid');
+
 class NotesService {
   constructor() {
     this._notes = [];
@@ -21,7 +23,7 @@ class NotesService {
 
     const isSuccess = this._notes.filter(note => note.id === id).length > 0;
 
-    if (!isSucess) {
+    if (!isSuccess) {
       throw new Error('Catatan gagal ditambahkan');
     }
 

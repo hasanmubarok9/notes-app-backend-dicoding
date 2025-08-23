@@ -24,7 +24,6 @@ const init = async () => {
   });
 
   await server.start();
-  console.log("capek bro!!!1");
   console.log(`Server running at ${server.info.uri}`);
 };
 
