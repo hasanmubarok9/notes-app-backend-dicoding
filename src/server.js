@@ -1,24 +1,20 @@
 // const notesPlugin = require('./notesPlugin.js');
-// const Hapi = require('@hapi/hapi');
+const Hapi = require('@hapi/hapi');
 // const routes = require('./routes');
-const notes = require('./api/notes);
+const notes = require('./api/notes');
 const NotesService = require('./services/inMemory/NotesService.js');
 
 const init = async () => {
   const notesService = new NotesService();
-  // const server = Hapi.server({
-  //   port: 5000,
-  //   host: process.env.NODE_ENV !== 'production' ? 'localhost' : '0.0.0.0',
-  //   routes: {
-  //     cors: {
-  //       origin: ['*'],
-  //     },
-  //   },
-  // });
-  //
-  // server.route([]);
-
-  // server.route(routes);
+  const server = Hapi.server({
+    port: 5000,
+    host: process.env.NODE_ENV !== 'production' ? 'localhost' : '0.0.0.0',
+    routes: {
+      cors: {
+        origin: ['*'],
+      },
+    },
+  });
 
   await server.register({
     plugin: notes,
@@ -28,6 +24,7 @@ const init = async () => {
   });
 
   await server.start();
+  console.log("capek bro!!!1");
   console.log(`Server running at ${server.info.uri}`);
 };
 

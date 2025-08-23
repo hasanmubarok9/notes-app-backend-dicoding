@@ -7,7 +7,7 @@ class NotesHandler {
     const { title = 'untitled', body, tags } = request.payload;
     const noteId = this._service.addNote({ title, body, tags });
     try {
-      const note = await this._service.getNote(noteId);
+      const note = this._service.getNote(noteId);
       const response = h.response({
         status: 'success',
         message: 'Catatan berhasil ditambahkan.',
@@ -29,6 +29,7 @@ class NotesHandler {
   
 
   getNotesHandler() {
+    console.log("di dalam handler getNotesHandler, masuk gk sih?");
     const notes = this._service.getNotes();
     const response = h.response({
       status: 'success',
@@ -105,3 +106,5 @@ class NotesHandler {
     }
   }
 }
+
+module.exports = NotesHandler;

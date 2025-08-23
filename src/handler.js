@@ -168,10 +168,11 @@ class NotesHandler {
   }
 }
 
-module.exports = {
-  addNoteHandler,
-  getAllNotesHandler,
-  getNoteByIdHandler,
-  editNoteByIdHandler,
-  deleteNoteByIdHandler,
-};
+// module.exports = {
+//   addNoteHandler,
+//   getAllNotesHandler,
+//   getNoteByIdHandler,
+//   editNoteByIdHandler,
+//   deleteNoteByIdHandler,
+// };
+module.exports = NotesHandler;
