@@ -6,7 +6,7 @@ class NotesService {
   }
 
   addNote({ title, body, tags }) {
-    const noteId = nanoid(16);
+    const id = nanoid(16);
     const createdAt = new Date().toISOString();
     const updatedAt = createdAt;
 
@@ -14,28 +14,28 @@ class NotesService {
       title,
       tags,
       body,
-      noteId,
+      id,
       createdAt,
       updatedAt,
     }
 
     this._notes.push(newNote);
 
-    const isSuccess = this._notes.filter(note => note.noteId === noteId).length > 0;
+    const isSuccess = this._notes.filter(note => note.id === id).length > 0;
 
     if (!isSuccess) {
       throw new Error('Catatan gagal ditambahkan');
     }
 
-    return noteId;
+    return id;
   }
 
   getNotes() {
     return this._notes;
   }
 
-  getNoteById(noteId) {
-    const note = this._notes.filter(n => n.noteId === noteId)[0];
+  getNoteById(id) {
+    const note = this._notes.filter(n => n.id === id)[0];
     if (!note) {
       throw new Error('Catatan tidak ditemukan!');
     }
@@ -43,8 +43,8 @@ class NotesService {
     return note;
   }
 
-  editNoteById(noteId, { title, body, tags }) {
-    const index = this._notes.findIndex(note => note.noteId === noteId);
+  editNoteById(id, { title, body, tags }) {
+    const index = this._notes.findIndex(note => note.id === id);
 
     if (index === -1) {
       throw new Error('Gagal memperbarui catatan. Id tidak ditemukan');
@@ -61,8 +61,8 @@ class NotesService {
     }
   }
 
-  deleteNoteById(noteId) {
-    const index = this._notes.findIndex(note => note.noteId === noteId);
+  deleteNoteById(id) {
+    const index = this._notes.findIndex(note => note.id === id);
 
     if (index === -1) {
       throw new Error('Catatan gagal dihapus. Id tidak ditemukan');

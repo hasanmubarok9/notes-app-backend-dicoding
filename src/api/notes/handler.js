@@ -74,7 +74,7 @@ class NotesHandler {
       const note = this._service.editNoteById(id, request.payload);
       const response = h.response({
         status: 'success',
-        message: 'Catatan berhasil diubah.',
+        message: 'Catatan berhasil diperbarui',
         data: {
           note,
         },
@@ -97,7 +97,7 @@ class NotesHandler {
       this._service.deleteNoteById(id);
       const response = h.response({
         status: 'success',
-        message: 'Catatan berhasil dihapus.',
+        message: 'Catatan berhasil dihapus',
       });
       response.code(200);
       return response; 
