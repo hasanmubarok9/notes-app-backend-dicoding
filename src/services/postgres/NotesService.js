@@ -1,5 +1,5 @@
 const { Pool } = require("pg");
-const { nanoid } = require("nanoidd");
+const { nanoid } = require("nanoid");
 const InvariantError = require("../../exceptions/InvariantError.js");
 const { mapDBToModel } = require("../../utils");
 
