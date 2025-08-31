@@ -31,8 +31,6 @@ class UsersHandler {
 
   async getUserByIdHandler(request, h) {
     const { id } = request.params;
-    console.log('nilai id: ', id);
-
     const user = await this._service.getUserById(id);
 
     return {
