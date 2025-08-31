@@ -34,15 +34,16 @@ const init = async () => {
       options: {
         service: notesService,
         validator: NotesValidator,
+      },
     },
     {
       plugin: users,
       options: {
         service: usersService,
         validator: UsersValidator,
-      }
-    }
-  }]);
+      },
+    },
+  ]);
 
   server.ext('onPreResponse', (request, h) => {
     // mendapatkan konteks response dari request
