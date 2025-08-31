@@ -8,8 +8,6 @@ const ClientError = require("./exceptions/ClientError.js");
 
 const init = async () => {
   const notesService = new NotesService();
-  console.log("nilai PORT: ", process.env.PORT);
-  console.log("nilai HOST: ", process.env.HOST);
   const server = Hapi.server({
     port: process.env.PORT,
     host: process.env.HOST,
