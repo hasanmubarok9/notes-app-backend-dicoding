@@ -24,7 +24,7 @@ const ClientError = require('./exceptions/ClientError');
 const init = async () => {
   const notesService = new NotesService();
   const usersService = new UsersService();
-  const AuthenticationsService = new AuthenticationsService();
+  const authenticationsService = new AuthenticationsService();
 
   const server = Hapi.server({
     port: process.env.PORT,
