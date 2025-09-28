@@ -35,7 +35,7 @@ class NotesHandler {
     return response;
   }
 
-  async getNotesHandler() {
+  async getNotesHandler(request) {
     const {
       id: credentialId
     } = request.auth.credentials;
