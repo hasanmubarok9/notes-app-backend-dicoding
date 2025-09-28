@@ -82,10 +82,6 @@ class UsersService {
     }
 
     return result.rows[0];
-    // try {
-    // } catch (error) {
-    //   console.error('error: ', error);
-    // }
   }
 }
 
