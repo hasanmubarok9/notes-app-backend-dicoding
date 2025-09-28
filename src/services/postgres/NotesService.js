@@ -29,6 +29,8 @@ class NotesService {
     }
   }
   async addNote({ title, body, tags, owner }) {
+    try {
+
     const id = nanoid(16);
     const createdAt = new Date().toISOString();
     const updatedAt = createdAt;
@@ -45,6 +47,11 @@ class NotesService {
     }
 
     return result.rows[0].id;
+    } catch (e) {
+      console.log("error: ", e)
+
+      throw new InvariantError("Errorrrrr");
+    }
   }
 
   async getNotes(owner) {
