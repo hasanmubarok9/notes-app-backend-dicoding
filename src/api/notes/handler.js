@@ -24,8 +24,6 @@ class NotesHandler {
       owner: credentialId
     });
 
-    console.log("di dalam post note handler, nilai credentialId: ", credentialId);
-
     const response = h.response({
       status: "success",
       message: "Catatan berhasil ditambahkan",
