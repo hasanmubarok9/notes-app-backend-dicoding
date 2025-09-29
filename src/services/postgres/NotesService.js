@@ -50,8 +50,6 @@ class NotesService {
 
     return result.rows[0].id;
     } catch (e) {
-      console.log("error: ", e)
-
       throw new InvariantError("Errorrrrr");
     }
   }
