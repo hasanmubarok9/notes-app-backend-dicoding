@@ -6,7 +6,7 @@ class CollaborationsService {
     this._pool = new Pool();
   }
 
-  async addCollaborationsService(noteId, userId) {
+  async addCollaboration(noteId, userId) {
     const id = `collab-${nanoid(16)}`;
 
     const query = {
@@ -39,7 +39,7 @@ class CollaborationsService {
   async verifyCollaborator(noteId, userId) {
     const query = {
       text: 'SELECT * FROM collaborations WHERE note_id = $1 AND user_id = $2',
-      values: [noteId, userId].
+      values: [noteId, userId],
     };
 
     const result = await this._pool.query(query);

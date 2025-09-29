@@ -25,10 +25,11 @@ class NotesService {
 
     const note = result.rows[0];
 
-    if (note.owner != owner) {
+    if (note.owner !== owner) {
       throw new AuthorizationError('Anda tidak berhak mengakses resource ini');
     }
   }
+
   async addNote({ title, body, tags, owner }) {
     try {
 
@@ -112,7 +113,6 @@ class NotesService {
       if (error instanceof NotFoundError) {
         throw error;
       }
-
       try {
         await this._collaborationService.verifyCollaborator(noteId, userId);
       } catch {
