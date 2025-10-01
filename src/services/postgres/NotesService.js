@@ -31,8 +31,6 @@ class NotesService {
   }
 
   async addNote({ title, body, tags, owner }) {
-    try {
-
     const id = nanoid(16);
     const createdAt = new Date().toISOString();
     const updatedAt = createdAt;
@@ -48,10 +46,7 @@ class NotesService {
       throw new InvariantError("Catatan gagal ditambahkan");
     }
 
-    return result.rows[0].id;
-    } catch (e) {
-      throw new InvariantError("Errorrrrr");
-    }
+    return result.rows[0].id;    
   }
 
   async getNotes(owner) {
@@ -68,7 +63,10 @@ class NotesService {
 
   async getNoteById(id) {
     const query = {
-      text: "SELECT * FROM notes WHERE id = $1",
+      text: `SELECT notes.*, users.username
+      FROM notes
+      LEFT JOIN users ON users.id = notes.owner
+      WHERE notes.id = $1`,
       values: [id],
     };
     const result = await this._pool.query(query);

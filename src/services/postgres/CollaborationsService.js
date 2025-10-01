@@ -37,7 +37,6 @@ class CollaborationsService {
   }
 
   async verifyCollaborator(noteId, userId) {
-    console.log("di dalam verifyCollaborator, nilai noteId: ", noteId, ", dan nilai userId: ", userId);
     const query = {
       text: 'SELECT * FROM collaborations WHERE note_id = $1 AND user_id = $2',
       values: [noteId, userId],
