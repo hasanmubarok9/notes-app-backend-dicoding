@@ -125,7 +125,7 @@ const init = async () => {
     {
       plugin: uploads,
       options: {
-        service: StorageService,
+        service: storageService,
         validator: UploadsValidator,
       },
     },
